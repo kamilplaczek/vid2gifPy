@@ -2,5 +2,15 @@
 {% load staticfiles %}
 
 {% block content %}
-    <img src="{% static '' %}results/{{ object.id }}.gif"/>
+    <div class="row text-md-center">
+
+        <div class="row">
+            <img src="{% static '' %}results/{{ object.result_file_name }}"/>
+        </div>
+        <div class="row">
+            Static URL: <code> http://{{ request.get_host }}{% static '' %}results/{{ object.result_file_name }}</code><br />
+            IMG tag: <code>&lt;img src="http://{{ request.get_host }}{% static '' %}results/{{ object.result_file_name }}"&gt;&lt;/img&gt;</code>
+        </div>
+    </div>
+
 {% endblock content %}
