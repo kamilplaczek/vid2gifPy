@@ -1,2 +1,2 @@
 # vid2gifPy
-Simple video to gif converter web app using Django.
+Simple video to gif converter web app using Django and MoviePy.
