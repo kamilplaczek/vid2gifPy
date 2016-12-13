@@ -1,0 +1,17 @@
+.thumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+}
+
+.thumb-list .thumb {
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+}

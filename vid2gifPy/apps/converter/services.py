@@ -46,6 +46,11 @@ class VidConvertService:
         }
         return switcher.get(pos, 'top')
 
+
+    def save_thumb(self, vid, id):
+        small_vid = vid.resize(height=200)
+        small_vid.save_frame('static/thumbs/{0}.jpg'.format(id))
+
     def convert_to_gif(self, vidPath: string, id: int, size: int, speed: int, quality: int, loopMode: int,
                        captionPos: int, caption: string = None) -> string:
         size = self.get_size(size)
@@ -68,9 +73,10 @@ class VidConvertService:
 
         filename = '{0}.gif'.format(id)
         path = 'static/results/' + filename
+        self.save_thumb(vid, id)
         # TODO: figure out ImageMagick output dir and use it, optimize output
         if composition is not None:
-            composition.write_gif(path, program='imageio', fps=fps, fuzz=1)
+            composition.write_gif(path,fps=fps)
         else:
-            vid.write_gif(path, program='imageio', fps=fps, fuzz=1)
+            vid.write_gif(path, fps=fps)
         return filename

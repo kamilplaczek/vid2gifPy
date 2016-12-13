@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+    <h1 class="display-4">Gifs gallery</h1>
+    <hr/>
+    <div class="row text-md-center thumb-list">
+        {% for gif in object_list %}
+            <div class="thumb">
+                <a href="/converter/{{ gif.id }}"><img src="{% static '' %}thumbs/{{ gif.id }}.jpg"
+                                                       class="img-thumbnail"/></a>
+            </div>
+        {% empty %}
+            <h2>No gifs yet.</h2>
+        {% endfor %}
+    </div>
+{% endblock content %}

@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 
-from django.views.generic import CreateView, DetailView
+from django.views.generic import CreateView, DetailView, ListView
 from .models import ConvertVidRequestModel
 from django.core.urlresolvers import reverse
 from .services import VidConvertService
@@ -27,4 +27,7 @@ class ConvertVidRequestCreateView(CreateView):
 
 
 class ConvertVidRequestDetailsView(DetailView):
+    model = ConvertVidRequestModel
+
+class ConvertVidRequestListView(ListView):
     model = ConvertVidRequestModel

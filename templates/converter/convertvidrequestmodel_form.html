@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <h1 class="display-4">Convert video to gif</h1>
+    <hr />
     <div class="row">
         <form action="/converter/" method="post" enctype='multipart/form-data'>
             {% csrf_token %}
